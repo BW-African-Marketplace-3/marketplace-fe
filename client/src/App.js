@@ -338,38 +338,68 @@ function App() {
 
 	const [editing, setEditing] = useState(false);
 
-	const [user, setUser] = useState(users);
-	const [lising, setListing] = useState(listings);
-	const [region, setRegion] = useState(1)
+	const [user, setUser] = useState(users[1]);
+	const [listing, setListing] = useState(listings);
+	// const [region, setRegion] = useState(1);
 
-	useEffect(() => {
+	// let history = useHistory();
 
-	});
+	// useEffect(() => {
+	// 	history.push(`/region/${region}`);
+	// }, [region]);
 
-	const regionChange = e => {
-		console.log('Changed');
-	};
-
+	// const regionChange = e => {
+	// 	setRegion(e.target.value);
+	// 	console.log(`Region state was set to: ${e.target.value}`);
+	// };
 	return (
 		<div className='App'>
 			{editing ? console.log('Editing') : console.log('No Editing')}
 
-			<header>
-				<img src="img/logo.png" />
+			<nav>
+				<img className="logo" src="img/logo.png" />
 				{/*Select Dropdown For Region (Defaults to current users region) */}
 				{/* onChange of region selection, listings matching that region are passed through the filter and display in the grid. */}
-				<form>
-					<select id="region" name="region" onChange={regionChange}>
-						<option value="1">Region 1</option>
-						<option value="2">Region 2</option>
-						<option value="3">Region 3</option>
-						<option value="4">Region 4</option>
-						<option value="5">Region 5</option>
-					</select>
-				</form>
-				{/* <Filter/> */}
-			</header>
-		
+				
+				<Link exact to="/region/1" >Region 1</Link>
+				{/* <Link exact to="/region/2" >Region 2</Link>
+				<Link exact to="/region/3" >Region 3</Link>
+				<Link exact to="/region/4" >Region 4</Link>
+				<Link exact to="/region/5" >Region 5</Link> */}
+				<Link exact to="/profile">
+					<div>
+						<p>{`${user.first_name} ${user.last_name}`} </p>
+
+						<figure>
+							<img src="https://images.unsplash.com/photo-1522609925277-66fea332c575?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Profile Picture"/>
+						</figure>
+					</div>
+				</Link>
+			</nav>
+
+				<Filter listings={listing} users={users} />
+			{/* <Route path="/region/1" exact render={(routeProps) => {
+				return <Filter {...routeProps} region="1" />
+			}} />
+
+			<Route path="/region/2" exact render={(routeProps) => {
+				return <Filter {...routeProps} region="2" />
+			}} />
+			<Route path="/region/3" exact render={(routeProps) => {
+				return <Filter {...routeProps} region="3" />
+			}} />
+
+			<Route path="/region/4" exact render={(routeProps) => {
+				return <Filter {...routeProps} region="4" />
+			}} />
+
+			<Route path="/region/5" exact render={(routeProps) => {
+				return <Filter {...routeProps} region="5" />
+			}} /> */}
+
+			{/* <Filter/> */}
+
+			
 		</div>
 	);
 }
