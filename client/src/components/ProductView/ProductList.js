@@ -15,7 +15,7 @@ function ProductList(props) {
                         alt={item.name}
                         />
                         <p>{item.name}</p>
-                        {/* <p>{`By: ${props.users.}`}</p> */}
+                        <p>{`By: ${item.first_name} ${item.last_name}`}</p>
                         <p>{`$${item.price}`}</p>
                     </div>
                 </Link>

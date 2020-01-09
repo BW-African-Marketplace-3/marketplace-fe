@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import "./css/index.css";
 
 import Filter from "./components/ProductView/Filter";
+// import Register from "./Register";
+import Login from "./Login";
 
 import Profile from "./components/Profile/Profile";
 
@@ -36,6 +38,8 @@ function App() {
 	const listings = [
 		{
 		user_id: 3,
+		first_name: 'Jacquetta',
+		last_name: 'Crecy',
 		listing_id: '9da4e72r',
 		category: 'Jewelery',
 		sub_category: 'Finance',
@@ -46,6 +50,8 @@ function App() {
 		},
 		{
 		user_id: 3,
+		first_name: 'Jacquetta',
+		last_name: 'Crecy',
 		listing_id: '2wk3c09i',
 		category: 'Jewelery',
 		sub_category: 'Public Utilities',
@@ -56,6 +62,8 @@ function App() {
 		},
 		{
 		user_id: 3,
+		first_name: 'Jacquetta',
+		last_name: 'Crecy',
 		listing_id: '3gd4w78o',
 		category: 'Health',
 		sub_category: 'Health Care',
@@ -66,6 +74,8 @@ function App() {
 		},
 		{
 		user_id: 1,
+		first_name: 'Chrisse',
+		last_name: 'Buckenhill',
 		listing_id: '1ul3j16w',
 		category: 'Books',
 		sub_category: 'n/a',
@@ -76,6 +86,8 @@ function App() {
 		},
 		{
 		user_id: 3,
+		first_name: 'Jacquetta',
+		last_name: 'Crecy',
 		listing_id: '4bo3r52y',
 		category: 'Computers',
 		sub_category: 'n/a',
@@ -86,6 +98,8 @@ function App() {
 		},
 		{
 		user_id: 2,
+		first_name: 'Fionnula',
+		last_name: 'Heinke',
 		listing_id: '6dq6g97w',
 		category: 'Music',
 		sub_category: 'Technology',
@@ -96,6 +110,8 @@ function App() {
 		},
 		{
 		user_id: 3,
+		first_name: 'Jacquetta',
+		last_name: 'Crecy',
 		listing_id: '6nq6h76l',
 		category: 'Jewelery',
 		sub_category: 'Health Care',
@@ -106,6 +122,8 @@ function App() {
 		},
 		{
 		user_id: 3,
+		first_name: 'Jacquetta',
+		last_name: 'Crecy',
 		listing_id: '9sa7q29x',
 		category: 'Garden',
 		sub_category: 'Technology',
@@ -116,6 +134,8 @@ function App() {
 		},
 		{
 		user_id: 1,
+		first_name: 'Chrisse',
+		last_name: 'Buckenhill',
 		listing_id: '9eu2j21e',
 		category: 'Toys',
 		sub_category: 'Finance',
@@ -126,6 +146,8 @@ function App() {
 		},
 		{
 		user_id: 3,
+		first_name: 'Jacquetta',
+		last_name: 'Crecy',
 		listing_id: '4mb7d47h',
 		category: 'Books',
 		sub_category: 'Finance',
@@ -136,6 +158,8 @@ function App() {
 		},
 		{
 		user_id: 2,
+		first_name: 'Fionnula',
+		last_name: 'Heinke',
 		listing_id: '3bu7v09o',
 		category: 'Beauty',
 		sub_category: 'Health Care',
@@ -146,6 +170,8 @@ function App() {
 		},
 		{
 		user_id: 1,
+		first_name: 'Chrisse',
+		last_name: 'Buckenhill',
 		listing_id: '0fb3i74u',
 		category: 'Garden',
 		sub_category: 'n/a',
@@ -156,6 +182,8 @@ function App() {
 		},
 		{
 		user_id: 2,
+		first_name: 'Fionnula',
+		last_name: 'Heinke',
 		listing_id: '7rh8z69a',
 		category: 'Beauty',
 		sub_category: 'Consumer Services',
@@ -166,6 +194,8 @@ function App() {
 		},
 		{
 		user_id: 2,
+		first_name: 'Fionnula',
+		last_name: 'Heinke',
 		listing_id: '4pb1f06n',
 		category: 'Sports',
 		sub_category: 'Consumer Services',
@@ -176,6 +206,8 @@ function App() {
 		},
 		{
 		user_id: 3,
+		first_name: 'Jacquetta',
+		last_name: 'Crecy',
 		listing_id: '0qw0z57d',
 		category: 'Movies',
 		sub_category: 'n/a',
@@ -186,6 +218,8 @@ function App() {
 		},
 		{
 		user_id: 3,
+		first_name: 'Jacquetta',
+		last_name: 'Crecy',
 		listing_id: '5zd1h48w',
 		category: 'Sports',
 		sub_category: 'Public Utilities',
@@ -196,6 +230,8 @@ function App() {
 		},
 		{
 		user_id: 2,
+		first_name: 'Fionnula',
+		last_name: 'Heinke',
 		listing_id: '1br9o73h',
 		category: 'Automotive',
 		sub_category: 'Public Utilities',
@@ -206,6 +242,8 @@ function App() {
 		},
 		{
 		user_id: 3,
+		first_name: 'Jacquetta',
+		last_name: 'Crecy',
 		listing_id: '7uf9g31m',
 		category: 'Home',
 		sub_category: 'Health Care',
@@ -216,6 +254,8 @@ function App() {
 		},
 		{
 		user_id: 3,
+		first_name: 'Jacquetta',
+		last_name: 'Crecy',
 		listing_id: '9qr3i14y',
 		category: 'Electronics',
 		sub_category: 'Technology',
@@ -226,6 +266,8 @@ function App() {
 		},
 		{
 		user_id: 2,
+		first_name: 'Fionnula',
+		last_name: 'Heinke',
 		listing_id: '3yp8n15h',
 		category: 'Movies',
 		sub_category: 'Technology',
@@ -236,6 +278,8 @@ function App() {
 		},
 		{
 		user_id: 2,
+		first_name: 'Fionnula',
+		last_name: 'Heinke',
 		listing_id: '5ds5q11q',
 		category: 'Books',
 		sub_category: 'Consumer Durables',
@@ -246,6 +290,8 @@ function App() {
 		},
 		{
 		user_id: 2,
+		first_name: 'Fionnula',
+		last_name: 'Heinke',
 		listing_id: '6ua8g04d',
 		category: 'Music',
 		sub_category: 'Consumer Durables',
@@ -256,6 +302,8 @@ function App() {
 		},
 		{
 		user_id: 1,
+		first_name: 'Chrisse',
+		last_name: 'Buckenhill',
 		listing_id: '1ip0g53z',
 		category: 'Beauty',
 		sub_category: 'Health Care',
@@ -266,6 +314,8 @@ function App() {
 		},
 		{
 		user_id: 2,
+		first_name: 'Fionnula',
+		last_name: 'Heinke',
 		listing_id: '8zg3w09z',
 		category: 'Tools',
 		sub_category: 'Finance',
@@ -276,6 +326,8 @@ function App() {
 		},
 		{
 		user_id: 3,
+		first_name: 'Jacquetta',
+		last_name: 'Crecy',
 		listing_id: '1bc5m24e',
 		category: 'Jewelery',
 		sub_category: 'Health Care',
@@ -286,6 +338,8 @@ function App() {
 		},
 		{
 		user_id: 1,
+		first_name: 'Chrisse',
+		last_name: 'Buckenhill',
 		listing_id: '0xb2l89t',
 		category: 'Books',
 		sub_category: 'Health Care',
@@ -296,6 +350,8 @@ function App() {
 		},
 		{
 		user_id: 2,
+		first_name: 'Fionnula',
+		last_name: 'Heinke',
 		listing_id: '0tq7c19j',
 		category: 'Games',
 		sub_category: 'Capital Goods',
@@ -306,6 +362,8 @@ function App() {
 		},
 		{
 		user_id: 2,
+		first_name: 'Fionnula',
+		last_name: 'Heinke',
 		listing_id: '3lo4y59o',
 		category: 'Outdoors',
 		sub_category: 'Energy',
@@ -316,6 +374,8 @@ function App() {
 		},
 		{
 		user_id: 2,
+		first_name: 'Fionnula',
+		last_name: 'Heinke',
 		listing_id: '3dg5x41r',
 		category: 'Shoes',
 		sub_category: 'Capital Goods',
@@ -326,6 +386,8 @@ function App() {
 		},
 		{
 		user_id: 2,
+		first_name: 'Fionnula',
+		last_name: 'Heinke',
 		listing_id: '5dd4n32p',
 		category: 'Music',
 		sub_category: 'Finance',
@@ -357,7 +419,7 @@ function App() {
 			{editing ? console.log('Editing') : console.log('No Editing')}
 
 			<nav>
-				<img className="logo" src="img/logo.png" />
+				<img className="logo" src="img/logo.png" alt="Logo"/>
 				{/*Select Dropdown For Region (Defaults to current users region) */}
 				{/* onChange of region selection, listings matching that region are passed through the filter and display in the grid. */}
 				
@@ -377,12 +439,16 @@ function App() {
 				</Link>
 			</nav>
 
-				<Filter listings={listing} users={users} />
-			{/* <Route path="/region/1" exact render={(routeProps) => {
-				return <Filter {...routeProps} region="1" />
+				{/* <Register/> */}
+				{/* <Login/> */}
+
+			{/* <Filter listings={listing} users={users} /> */}
+
+			<Route path="/region/1" exact render={(routeProps) => {
+				return <Filter {...routeProps} listings={listing} users={users} region="1" />
 			}} />
 
-			<Route path="/region/2" exact render={(routeProps) => {
+			{/* <Route path="/region/2" exact render={(routeProps) => {
 				return <Filter {...routeProps} region="2" />
 			}} />
 			<Route path="/region/3" exact render={(routeProps) => {
@@ -397,7 +463,6 @@ function App() {
 				return <Filter {...routeProps} region="5" />
 			}} /> */}
 
-			{/* <Filter/> */}
 
 			
 		</div>
