@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Link } from "react-router-dom";
 import "./css/index.css";
+import logo from "./img/logo.png";
 
 function Navigation(props) {
 
@@ -8,7 +9,7 @@ function Navigation(props) {
 
     return(
         <nav>
-            <img className="logo" src="img/logo.png" alt="Logo"/>
+            <img className="logo" src={logo} alt={'Logo'}/>
             {/*Select Dropdown For Region (Defaults to current users region) */}
             {/* onChange of region selection, listings matching that region are passed through the filter and display in the grid. */}
             

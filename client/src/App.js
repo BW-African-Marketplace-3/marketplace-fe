@@ -418,7 +418,7 @@ function App() {
 				
 			{/* This is a region selection page so that /region doesnt throw a blank page. */}
 			<Route path="/region" exact render={(routeProps) => {
-				return <ProductRegions {...routeProps} listings={listing} users={users} region="1" />
+				return <ProductRegions {...routeProps} />
 			}} />
 
 			<Route path="/region/1" exact render={(routeProps) => {
