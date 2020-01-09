@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 import "./css/index.css";
 
+import Navigation from "./Navigation";
 import Filter from "./components/ProductView/Filter";
-// import Register from "./Register";
-import Login from "./Login";
-
+import ProductRegions from "./components/ProductView/ProductRegions";
 import Profile from "./components/Profile/Profile";
-
+import Register from "./Register";
+import Login from "./Login";
 
 function App() {
 	
@@ -402,69 +402,44 @@ function App() {
 
 	const [user, setUser] = useState(users[1]);
 	const [listing, setListing] = useState(listings);
-	// const [region, setRegion] = useState(1);
 
-	// let history = useHistory();
-
-	// useEffect(() => {
-	// 	history.push(`/region/${region}`);
-	// }, [region]);
-
-	// const regionChange = e => {
-	// 	setRegion(e.target.value);
-	// 	console.log(`Region state was set to: ${e.target.value}`);
-	// };
 	return (
 		<div className='App'>
 			{editing ? console.log('Editing') : console.log('No Editing')}
 
-			<nav>
-				<img className="logo" src="img/logo.png" alt="Logo"/>
-				{/*Select Dropdown For Region (Defaults to current users region) */}
-				{/* onChange of region selection, listings matching that region are passed through the filter and display in the grid. */}
+			{/*Switch will only show one of these components at a time when matching the exact path. Because no path is declaired for navigation, as long as the path isn't '/' or '/register' it will display on all other routes. */}
+			<Switch> 
+				<Route path="/" exact component={Login}/> {/* Root path is login page */}
+				<Route path="/register" exact component={Register}/>
+				<Route render={(routeProps) => {
+					return <Navigation {...routeProps} users={user} />
+				}} />
+			</Switch>
 				
-				<Link exact to="/region/1" >Region 1</Link>
-				{/* <Link exact to="/region/2" >Region 2</Link>
-				<Link exact to="/region/3" >Region 3</Link>
-				<Link exact to="/region/4" >Region 4</Link>
-				<Link exact to="/region/5" >Region 5</Link> */}
-				<Link exact to="/profile">
-					<div>
-						<p>{`${user.first_name} ${user.last_name}`} </p>
-
-						<figure>
-							<img src="https://images.unsplash.com/photo-1522609925277-66fea332c575?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Profile Picture"/>
-						</figure>
-					</div>
-				</Link>
-			</nav>
-
-				{/* <Register/> */}
-				{/* <Login/> */}
-
-			{/* <Filter listings={listing} users={users} /> */}
+			{/* This is a region selection page so that /region doesnt throw a blank page. */}
+			<Route path="/region" exact render={(routeProps) => {
+				return <ProductRegions {...routeProps} listings={listing} users={users} region="1" />
+			}} />
 
 			<Route path="/region/1" exact render={(routeProps) => {
 				return <Filter {...routeProps} listings={listing} users={users} region="1" />
 			}} />
 
-			{/* <Route path="/region/2" exact render={(routeProps) => {
-				return <Filter {...routeProps} region="2" />
+			<Route path="/region/2" exact render={(routeProps) => {
+				return <Filter {...routeProps} listings={listing} users={users} region="2" />
 			}} />
+
 			<Route path="/region/3" exact render={(routeProps) => {
-				return <Filter {...routeProps} region="3" />
+				return <Filter {...routeProps} listings={listing} users={users} region="3" />
 			}} />
 
 			<Route path="/region/4" exact render={(routeProps) => {
-				return <Filter {...routeProps} region="4" />
+				return <Filter {...routeProps} listings={listing} users={users} region="4" />
 			}} />
 
 			<Route path="/region/5" exact render={(routeProps) => {
-				return <Filter {...routeProps} region="5" />
-			}} /> */}
-
-
-			
+				return <Filter {...routeProps} listings={listing} users={users} region="5" />
+			}} />
 		</div>
 	);
 }
