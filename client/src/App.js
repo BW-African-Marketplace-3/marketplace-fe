@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Route, Link } from "react-router-dom";
+import { BrowserRouter as Route, Link, useHistory } from "react-router-dom";
 import "./css/index.css";
 
 import Filter from "./components/ProductView/Filter";
@@ -338,24 +338,26 @@ function App() {
 
 	const [editing, setEditing] = useState(false);
 
-	const [user, setUser] = useState(users);
-	const [lising, setListing] = useState(listings);
-	const [region, setRegion] = useState(1)
+	const [user, setUser] = useState(users[1]);
+	const [listing, setListing] = useState(listings);
+	const [region, setRegion] = useState(1);
+
+	let history = useHistory();
 
 	useEffect(() => {
-
-	});
+		history.push(`/region/${region}`);
+	}, [region]);
 
 	const regionChange = e => {
-		console.log('Changed');
+		setRegion(e.target.value);
+		console.log(`Region state was set to: ${e.target.value}`);
 	};
-
 	return (
 		<div className='App'>
 			{editing ? console.log('Editing') : console.log('No Editing')}
 
-			<header>
-				<img src="img/logo.png" />
+			<nav>
+				<img className="logo" src="img/logo.png" />
 				{/*Select Dropdown For Region (Defaults to current users region) */}
 				{/* onChange of region selection, listings matching that region are passed through the filter and display in the grid. */}
 				<form>
@@ -367,9 +369,25 @@ function App() {
 						<option value="5">Region 5</option>
 					</select>
 				</form>
-				{/* <Filter/> */}
-			</header>
-		
+				<Link exact to="/profile">
+					<div>
+						<p>{`${user.first_name} ${user.last_name}`} </p>
+
+						<figure>
+							<img src="https://images.unsplash.com/photo-1522609925277-66fea332c575?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Profile Picture"/>
+						</figure>
+					</div>
+				</Link>
+			</nav>
+
+			{/* Link Below on how to trigger route change without link element */}
+			{/* https://stackoverflow.com/questions/42271877/changing-the-url-in-react-router-v4-without-using-redirect-or-link */}
+			<Route exact />
+			<Route exact />
+			<Route path="/region/:regionName" render={(routeProps) => {
+				return <Filter {...routeProps} />
+			}} />
+		{/* <Filter data={listings} region={region}/> */}
 		</div>
 	);
 }
