@@ -1,1 +1,57 @@
 // For all product view components
+
+.listing-container{
+    width: 100%;
+    background: red;
+
+    display: flex;
+    flex-direction: row;
+
+    form {
+        width: 300px;
+        background: #c4c4c4;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+
+        h1 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        select {
+            width: 100%;
+            margin-bottom: 50px;
+            height: 35px;
+            border: 2px solid #000;
+            border-radius: 5px;
+        }
+        input {
+            width: 100%;
+            height: 35px;
+            border: 2px solid #000;
+            border-radius: 5px;
+        }
+    }
+
+    .card-container {
+        // width: calc(100% - 300px);
+        width: 100%;
+        padding: 20px;
+        background: #fff;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        .item-card {
+            width: 180px;
+            height: 220px;
+            margin: 10px;
+            background: #FFF3E9;
+        }
+    }
+}

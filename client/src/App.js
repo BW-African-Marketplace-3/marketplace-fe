@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Route, Link, useHistory } from "react-router-dom";
+import { BrowserRouter as Route, Link } from "react-router-dom";
 import "./css/index.css";
 
 import Filter from "./components/ProductView/Filter";
@@ -340,18 +340,18 @@ function App() {
 
 	const [user, setUser] = useState(users[1]);
 	const [listing, setListing] = useState(listings);
-	const [region, setRegion] = useState(1);
+	// const [region, setRegion] = useState(1);
 
-	let history = useHistory();
+	// let history = useHistory();
 
-	useEffect(() => {
-		history.push(`/region/${region}`);
-	}, [region]);
+	// useEffect(() => {
+	// 	history.push(`/region/${region}`);
+	// }, [region]);
 
-	const regionChange = e => {
-		setRegion(e.target.value);
-		console.log(`Region state was set to: ${e.target.value}`);
-	};
+	// const regionChange = e => {
+	// 	setRegion(e.target.value);
+	// 	console.log(`Region state was set to: ${e.target.value}`);
+	// };
 	return (
 		<div className='App'>
 			{editing ? console.log('Editing') : console.log('No Editing')}
@@ -360,15 +360,12 @@ function App() {
 				<img className="logo" src="img/logo.png" />
 				{/*Select Dropdown For Region (Defaults to current users region) */}
 				{/* onChange of region selection, listings matching that region are passed through the filter and display in the grid. */}
-				<form>
-					<select id="region" name="region" onChange={regionChange}>
-						<option value="1">Region 1</option>
-						<option value="2">Region 2</option>
-						<option value="3">Region 3</option>
-						<option value="4">Region 4</option>
-						<option value="5">Region 5</option>
-					</select>
-				</form>
+				
+				<Link exact to="/region/1" >Region 1</Link>
+				{/* <Link exact to="/region/2" >Region 2</Link>
+				<Link exact to="/region/3" >Region 3</Link>
+				<Link exact to="/region/4" >Region 4</Link>
+				<Link exact to="/region/5" >Region 5</Link> */}
 				<Link exact to="/profile">
 					<div>
 						<p>{`${user.first_name} ${user.last_name}`} </p>
@@ -380,14 +377,29 @@ function App() {
 				</Link>
 			</nav>
 
-			{/* Link Below on how to trigger route change without link element */}
-			{/* https://stackoverflow.com/questions/42271877/changing-the-url-in-react-router-v4-without-using-redirect-or-link */}
-			<Route exact />
-			<Route exact />
-			<Route path="/region/:regionName" render={(routeProps) => {
-				return <Filter {...routeProps} />
+				<Filter listings={listing} users={users} />
+			{/* <Route path="/region/1" exact render={(routeProps) => {
+				return <Filter {...routeProps} region="1" />
 			}} />
-		{/* <Filter data={listings} region={region}/> */}
+
+			<Route path="/region/2" exact render={(routeProps) => {
+				return <Filter {...routeProps} region="2" />
+			}} />
+			<Route path="/region/3" exact render={(routeProps) => {
+				return <Filter {...routeProps} region="3" />
+			}} />
+
+			<Route path="/region/4" exact render={(routeProps) => {
+				return <Filter {...routeProps} region="4" />
+			}} />
+
+			<Route path="/region/5" exact render={(routeProps) => {
+				return <Filter {...routeProps} region="5" />
+			}} /> */}
+
+			{/* <Filter/> */}
+
+			
 		</div>
 	);
 }

@@ -7,9 +7,11 @@ import ProductList from "./ProductList";
 function Filter(props) {
 
     console.log("In Filter Man");
+    console.log(props.listings);
     return (
-        <section>
+        <section className="listing-container">
             <form>
+                <h1>Filters</h1>
                 <select>
                     <option>Category 1</option>
                     <option>Category 2</option>
@@ -36,7 +38,7 @@ function Filter(props) {
                 />
             </form>
 
-            <ProductList/>
+            <ProductList filtered={props.listings} user={props.user}/>
         </section>
     )
 }
