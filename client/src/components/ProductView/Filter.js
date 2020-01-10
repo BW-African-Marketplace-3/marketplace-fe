@@ -1,45 +1,58 @@
-
+import { Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
-import "../../css/index.css";
-import ProductList from "./ProductList"; {/* ~~~~~ Styles for this component are located in 'productView.less' ~~~~~ */}
+import "../../css/index.css"; {/* ~~~~~ Styles for this component are located in 'productView.less' ~~~~~ */}
 
 function Filter(props) {
 
-    const [cat1, setCat1] = useState("");
-    const [cat2, setCat2] = useState(props.listings);
+    console.log(props.listings);
+
+    const [cat1, setCat1] = useState();
+    const [cat2, setCat2] = useState();
+
+        const filterCat1 = e => {
+            setCat1(e.target.value);
+        }
+
+        const filterCat2 = e => {
+            setCat2(e.target.value);
+        }
 
     const [search, setSearch] = useState("");
-    const [results, setResults] = useState();
+    const [results, setResults] = useState(props.listings);
 
-  useEffect(() => {
-    let list = [];
-    props.data.forEach(character => {
-      if (character.name.toLowerCase().includes(search.toLocaleLowerCase())) {
-        return list.unshift(character);
-      }
-    });
+        useEffect(() => {
+            let list = [];
+            props.listings.forEach(listing => {
+            if (listing.name.toLowerCase().includes(search.toLocaleLowerCase())) {
+                return list.unshift(listing);
+            }
+            });
 
-    setResults(list);
-  }, [search, props.data]);
+            setResults(list);
+        }, [search, props.data]);
+
+        const filterSearch = e => {
+            setSearch(e.target.value);
+        }
     
     return (
         <section className="listing-container">
             <form>
                 <h1>Filters</h1>
                 <select onChange={filterCat1}>
-                    <option>Category 1</option>
-                    <option>Category 2</option>
-                    <option>Category 3</option>
-                    <option>Category 4</option>
-                    <option>Category 5</option>
+                    <option value="1">Category 1</option>
+                    <option value="2">Category 2</option>
+                    <option value="3">Category 3</option>
+                    <option value="4">Category 4</option>
+                    <option value="5">Category 5</option>
                 </select>
 
                 <select onChange={filterCat2}>
-                    <option>Category 1</option>
-                    <option>Category 2</option>
-                    <option>Category 3</option>
-                    <option>Category 4</option>
-                    <option>Category 5</option>
+                    <option value="1">Category 1</option>
+                    <option value="2">Category 2</option>
+                    <option value="3">Category 3</option>
+                    <option value="4">Category 4</option>
+                    <option value="5">Category 5</option>
                 </select>
 
                 <input
@@ -47,13 +60,13 @@ function Filter(props) {
                     type="text"
                     name="searchfield"
                     placeholder="Search"
-                    // onChange={}
-                    // value={}
+                    onChange={filterSearch}
+                    value={search}
                 />
             </form>
 
             <div className="card-container">
-                {props.filtered.map(item => (
+                {results.map(item => (
                     <Link to={`/`}>
                         <div className="item-card" key={item.listing_id}>
                             <img
