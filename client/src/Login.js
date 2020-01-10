@@ -2,7 +2,7 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import "./css/index.css";
+import "./css/index.css"; {/* ~~~~~ Styles for this component are located in 'auth.less' ~~~~~ */}
 
 const LoginForm = ({ values, errors, touched }) => {
   return (
