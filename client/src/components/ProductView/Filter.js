@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
+import ProductList from "./ProductList";
 import "../../css/index.css"; {/* ~~~~~ Styles for this component are located in 'productView.less' ~~~~~ */}
 
 function Filter(props) {
@@ -65,22 +66,7 @@ function Filter(props) {
                 />
             </form>
 
-            <div className="card-container">
-                {results.map(item => (
-                    <Link to={`/`}>
-                        <div className="item-card" key={item.listing_id}>
-                            <img
-                            className="item-list-image"
-                            src={item.imageUrl}
-                            alt={item.name}
-                            />
-                            <p>{item.name}</p>
-                            <p>{`By: ${item.first_name} ${item.last_name}`}</p>
-                            <p>{`$${item.price}`}</p>
-                        </div>
-                    </Link>
-                ))}
-            </div>
+            <ProductList filtered={results} />
         </section>
     )
 }
