@@ -18,47 +18,48 @@ const ProfileForm = () => {
 		console.log(e.target.value);
 	};
 
+	const submitForm = e => {
+		e.preventDefault();
+	};
 	return (
-		<Form className='profile__form'>
+		<Form onSubmit={submitForm} className='profile__form'>
 			<FormGroup>
-				<label htmlFor='productClass'>Product Class</label>
+				<label htmlFor='category'>Category</label>
 				<Input
-					id='productClass'
+					id='category'
 					type='select'
-					name='productClass'
-					placeholder='Product class'
+					name='category'
 					onChange={handleChanges}
 				>
-					<option>Class 1</option>
-					<option>Class 2</option>
-					<option>Class 3</option>
-					<option>Class 4</option>
+					<option value='1'>Category 1</option>
+					<option value='2'>Category 2</option>
+					<option value='3'>Category 3</option>
+					<option value='4'>Category 4</option>
 				</Input>
 			</FormGroup>
 
 			<FormGroup>
-				<Label htmlFor='subCategory'>Sub Category</Label>
+				<Label htmlFor='sub_category'>Sub Category</Label>
 				<Input
-					id='subCategory'
+					id='sub_category'
 					type='select'
-					name=''
-					placeholder='subCategory'
+					name='sub_category'
 					onChange={handleChanges}
 				>
-					<option>Sub Category 1</option>
-					<option>Sub Category 2</option>
-					<option>Sub Category 3</option>
-					<option>Sub Category 4</option>
+					<option value='1'>Sub Category 1</option>
+					<option value='2'>Sub Category 2</option>
+					<option value='3'>Sub Category 3</option>
+					<option value='4'>Sub Category 4</option>
 				</Input>
 			</FormGroup>
 
 			<FormGroup>
-				<Label htmlFor='product'>Product</Label>
+				<Label htmlFor='name'>Name</Label>
 				<Input
-					id='product'
+					id='name'
 					type='text'
-					name=''
-					placeholder='Product'
+					name='name'
+					placeholder='Name your product'
 					onChange={handleChanges}
 				/>
 			</FormGroup>
@@ -68,18 +69,18 @@ const ProfileForm = () => {
 				<Input
 					id='price'
 					type='number'
-					name=''
-					placeholder='0'
+					name='price'
+					placeholder='$'
 					onChange={handleChanges}
 				/>
 			</FormGroup>
 
 			<Label htmlFor='region'>Region</Label>
 			<Input id='region' type='select' name='region' onChange={handleChanges}>
-				<option>Region 1</option>
-				<option>Region 2</option>
-				<option>Region 3</option>
-				<option>Region 4</option>
+				<option value='1'>Region 1</option>
+				<option value='2'>Region 2</option>
+				<option value='3'>Region 3</option>
+				<option value='4'>Region 4</option>
 			</Input>
 
 			<Label htmlFor='description'>Description</Label>
@@ -87,7 +88,7 @@ const ProfileForm = () => {
 				type='textarea'
 				id='description'
 				name='description'
-				placeholder='description'
+				placeholder='Describe your product in a few words'
 				onChange={handleChanges}
 			/>
 			<Input type='file'>Upload Picture</Input>
