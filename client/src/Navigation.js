@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Link } from "react-router-dom";
+import React from 'react';
+import { Link } from "react-router-dom";
 import "./css/index.css";
 import logo from "./img/logo.png";
 
@@ -23,7 +23,7 @@ function Navigation(props) {
                     <p>{`${props.users.first_name} ${props.users.last_name}`} </p>
 
                     <figure>
-                        <img src="https://images.unsplash.com/photo-1522609925277-66fea332c575?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="Profile Picture"/>
+                        <img src="https://images.unsplash.com/photo-1522609925277-66fea332c575?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"/>
                     </figure>
                 </div>
             </Link>
