@@ -1,11 +1,27 @@
 import React from 'react';
-import "../../css/index.css";
 import { Link } from "react-router-dom";
+import "../../css/index.css";
 
-function ProductList() {
+function ProductList(props) {
     
     return (
-        <p>f</p>
+        <div className="card-container">
+            {props.filtered.map(item => (
+                <Link to={`/`}>
+                    <div className="item-card" key={item.listing_id}>
+                        <img
+                        className="item-list-image"
+                        src={item.imageUrl}
+                        alt={item.name}
+                        />
+                        <p>{item.name}</p>
+                        <p>{`By: ${item.first_name} ${item.last_name}`}</p>
+                        <p>{`$${item.price}`}</p>
+                    </div>
+                </Link>
+            ))}
+        </div>
+
     )
 }
 
