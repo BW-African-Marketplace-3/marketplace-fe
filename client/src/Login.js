@@ -5,6 +5,7 @@ import axios from "axios";
 import "./css/index.css"; {/* ~~~~~ Styles for this component are located in 'auth.less' ~~~~~ */}
 
 const LoginForm = ({ values, errors, touched }) => {
+
   return (
     <div className="auth-form">
       <Form>
@@ -24,7 +25,7 @@ const LoginForm = ({ values, errors, touched }) => {
           )}
         </label>
 
-        <button type="submit">Register</button>
+        <button type="submit">Login</button>
       </Form>
     </div>
   );
