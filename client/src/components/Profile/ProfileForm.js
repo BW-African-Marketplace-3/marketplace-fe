@@ -22,9 +22,9 @@ const ProfileForm = () => {
     };
     
 	return (
-		<form onSubmit={submitForm} className='profile__form'>
-			<fieldset>
-				<label htmlFor='category'>Category</label>
+		<form onSubmit={submitForm} className='profile__form'>			
+            <label htmlFor='category'>
+                Category
 				<select
 					id='category'
 					
@@ -35,11 +35,11 @@ const ProfileForm = () => {
 					<option value='2'>Category 2</option>
 					<option value='3'>Category 3</option>
 					<option value='4'>Category 4</option>
-				</select>
-			</fieldset>
-
-			<fieldset>
-				<label htmlFor='sub_category'>Sub Category</label>
+				</select>		
+            </label>                
+			
+            <label htmlFor='sub_category'>
+                Sub Category
 				<select
 					id='sub_category'
 					
@@ -50,48 +50,56 @@ const ProfileForm = () => {
 					<option value='2'>Sub Category 2</option>
 					<option value='3'>Sub Category 3</option>
 					<option value='4'>Sub Category 4</option>
-				</select>
-			</fieldset>
-
-			<fieldset>
-				<label htmlFor='name'>Name</label>
+				</select>	
+            </label>                    
+			
+            <label htmlFor='name'>
+                Name
 				<input
 					id='name'
 					type='text'
 					name='name'
 					placeholder='Name your product'
 					onChange={handleChanges}
-				/>
-			</fieldset>
-
-			<fieldset>
-				<label htmlFor='price'>Price</label>
+				/>		
+            </label>                
+			
+            <label htmlFor='price'>
+                Price
 				<input
 					id='price'
 					type='number'
 					name='price'
 					placeholder='$'
 					onChange={handleChanges}
-				/>
-			</fieldset>
+				/>	
+            </label>                    
 
-			<label htmlFor='region'>Region</label>
-			<select id='region'  name='region' onChange={handleChanges}>
-				<option value='1'>Region 1</option>
-				<option value='2'>Region 2</option>
-				<option value='3'>Region 3</option>
-				<option value='4'>Region 4</option>
-			</select>
+			<label htmlFor='region'>
+                Region
+                <select id='region'  name='region' onChange={handleChanges}>
+                    <option value='1'>Region 1</option>
+                    <option value='2'>Region 2</option>
+                    <option value='3'>Region 3</option>
+                    <option value='4'>Region 4</option>
+                </select>
+            </label>
 
-			<label htmlFor='description'>Description</label>
-			<input
-				type='textarea'
-				id='description'
-				name='description'
-				placeholder='Describe your product in a few words'
-				onChange={handleChanges}
-			/>
-			<input type='file' />
+			<label htmlFor='description'>
+                Description
+                <input
+                    type='textarea'
+                    id='description'
+                    name='description'
+                    placeholder='Describe your product in a few words'
+                    onChange={handleChanges}
+                />
+            </label>
+
+            <label>
+                Picture
+                <input type='file'></input>
+            </label>
 			<button color='danger' type='submit'>
 				Submit
 			</button>
