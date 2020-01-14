@@ -69,7 +69,7 @@ function Filter(props) {
             }); 
 
             setResults(list);
-        }, [search, props.lisgings]);
+        }, [search, regionFilter]);
 
         const filterSearch = e => {
             setSearch(e.target.value);
@@ -97,14 +97,14 @@ function Filter(props) {
                     value={search}
                 />
 
-                <button 
+                {/* <button 
                     id="filterReset"
                     type="reset"
                     name="filterReset"
-                >Reset Filters</button>
+                >Reset Filters</button> */}
             </form>
 
-            <ProductList filtered={regionFilter} />
+            <ProductList filtered={results} />
         </section>
     )
 }
