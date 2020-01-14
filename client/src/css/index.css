@@ -254,6 +254,58 @@ nav div figure img {
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.5);
 }
+.nav__button {
+  background: rgba(125, 125, 125, 0.73);
+  width: 50%;
+  padding: 15px 5px;
+}
+.dashboard {
+  background: linear-gradient(258.7deg, #fa7e62 -0.11%, #f34173 100%);
+  color: white;
+  height: 350px;
+  margin-bottom: 40px;
+}
+.header__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid rebeccapurple; */
+  height: 100%;
+}
+.profile__picture {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  background-image: url("../img/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.profile__name {
+  border-right: 3px solid white;
+  padding: 40px;
+}
+.profile__listings {
+  padding: 40px;
+}
+.profile__form {
+  /* border: 1px solid rebeccapurple; */
+  width: 40%;
+  min-width: 300px;
+  height: 500px;
+  padding-left: 50px;
+}
+.profile__form button {
+  margin: 5px 0;
+  width: 100%;
+}
+.profile__form label {
+  font-weight: bold;
+}
+.products {
+  /* border: 2px solid green; */
+  display: flex;
+}
 .auth-form {
   display: flex;
   justify-content: center;
