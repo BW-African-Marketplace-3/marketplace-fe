@@ -1,16 +1,9 @@
 // For the profile page component
-
-.nav__button {
-	background: rgba(125, 125, 125, 0.73);
-	width: 50%;
-	padding: 15px 5px;
-}
-
 .dashboard {
 	background: linear-gradient(258.7deg, #fa7e62 -0.11%, #f34173 100%);
 	color: white;
 	height: 350px;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 
 .header__content {
@@ -25,39 +18,76 @@
 	height: 200px;
 	width: 200px;
 	border-radius: 50%;
-	background-image: url("../img/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg");
+	background-image: url("https://images.unsplash.com/photo-1522609925277-66fea332c575?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
 }
 
 .profile__name {
+	font-size: 40px;
 	border-right: 3px solid white;
 	padding: 40px;
 }
 
 .profile__listings {
+	font-size: 40px;
 	padding: 40px;
 }
 
-.profile__form {
-	/* border: 1px solid rebeccapurple; */
-	width: 40%;
-	min-width: 300px;
-	height: 500px;
-	padding-left: 50px;
-}
-
-.profile__form button {
-	margin: 5px 0;
-	width: 100%;
-}
-
-.profile__form label {
-	font-weight: bold;
-}
-
 .products {
-	/* border: 2px solid green; */
+	// border: 2px solid rgb(13, 228, 13);
 	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	form {
+		display: flex;
+		flex-direction: column;
+        align-items: center;
+
+        // width: 400px;
+        padding: 40px;
+        background: @tan;
+
+		label {
+			width: 100%;
+            // background: @pink;
+            margin-bottom: 25px;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+            
+
+			font-size: 20px;
+			
+			input {
+                height: 35px;
+                width: 250px;
+                margin-left: 25px;
+                border: 2px solid @black;
+                border-radius: 5px;
+			}
+			
+            select {
+                height: 35px;
+                width: 250px;
+
+                border: 2px solid @black;
+                border-radius: 5px;
+                
+                margin-left: 25px;
+            }
+		}
+
+		button {
+            align-self: flex-end;
+            height: 35px;
+            width: 250px;
+            border: 2px solid @black;
+            border-radius: 5px;
+        }
+	}
 }

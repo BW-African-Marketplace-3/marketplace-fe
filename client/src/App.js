@@ -417,7 +417,7 @@ function App() {
 			</Switch>
 				
 			<Route path="/profile" exact render={(routeProps) => {
-				return <Profile {...routeProps} />
+				return <Profile {...routeProps} listings={listing} users={user} />
 			}} />
 
 			{/* This is a region selection page so that /region doesnt throw a blank page. */}
